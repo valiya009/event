@@ -1,0 +1,337 @@
+.background {
+  min-height: 450px;
+  width: 100%;
+  background-image: url('../assets/m2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  width: 100%;
+  min-height: 450px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+
+.box-detail {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s ease-in;
+}
+
+.box-detail h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  justify-content: center;
+  display: flex;
+}
+
+.know-text {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  letter-spacing: 4px;
+  justify-content: center;
+  display: flex;
+}
+
+.about-text h1 {
+  color: #ffd700;
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0.5rem 0;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  display: flex;
+}
+
+.harmoni-text {
+  font-size: 33px;
+  font-weight: 800;
+  margin: 0.5rem 0;
+  letter-spacing: 2px;
+  justify-content: center;
+  display: flex;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.nav-item {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.nav-item:hover {
+  color: #ffd700;
+  transform: scale(1.1);
+}
+
+.separator {
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* Mission Vision Styles */
+.mission-vision-container {
+  background-color: #000;
+  color: white;
+  padding: 4rem 6rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.company-info {
+  flex: 1;
+  animation: fadeIn 1s ease-in;
+}
+
+.subtitle {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.get-started-btn {
+  background: none;
+  border: 2px solid white;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background: white;
+  color: black;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.info-section {
+  flex: 2;
+  display: flex;
+  gap: 4rem;
+  animation: fadeIn 1.2s ease-in;
+}
+
+.mission-section,
+.vision-section {
+  flex: 1;
+}
+
+.info-section h2 {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.underline {
+  display: inline-block;
+  width: 2rem;
+  height: 3px;
+  background-color: #ffd700;
+  transition: width 0.3s ease;
+}
+
+.info-section h2:hover .underline {
+  width: 3rem;
+}
+
+.info-section p {
+  color: #aaa;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.italic-text {
+  font-style: italic;
+  color: #ffd700;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .mission-vision-container {
+    flex-direction: column;
+    padding: 3rem 2rem;
+  }
+
+  .info-section {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .box-detail h2 {
+    font-size: 1.5rem;
+  }
+  
+  .know-text {
+    font-size: 2rem;
+  }
+  
+  .about-text h1,
+  .harmoni-text {
+    font-size: 2.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+
+  .info-section h2 {
+    font-size: 1.25rem;
+  }
+
+  .mission-vision-container {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .background {
+    min-height: 350px;
+  }
+
+  .overlay {
+    min-height: 350px;
+    padding: 1rem;
+  }
+
+  .box-detail h2 {
+    font-size: 1.2rem;
+  }
+
+  .know-text {
+    font-size: 1.5rem;
+  }
+
+  .about-text h1,
+  .harmoni-text {
+    font-size: 2rem;
+  }
+
+  .nav-item {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+/* Add these styles to your existing CSS */
+
+.study-container {
+  background-color: #000;
+  padding: 4rem 2rem;
+  width: 100%;
+}
+
+.study-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.study-card {
+  background-color: white;
+  border-radius: 4px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.study-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.study-content {
+  text-align: center;
+}
+
+.study-content h3 {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  text-transform: capitalize;
+}
+
+.study-content p {
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0.25rem 0;
+}
+
+@media (max-width: 1024px) {
+  .study-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .study-container {
+    padding: 3rem 1rem;
+  }
+  
+  .study-grid {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .study-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .study-card {
+    padding: 1.25rem;
+  }
+}
