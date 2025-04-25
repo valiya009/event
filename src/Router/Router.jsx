@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Hero } from "../Pages/Hero";
-import { Gallary } from "../Pages/Gallary";
-import { Contact } from "../Pages/Contact";
 import App from "../App";
 import React from "react";
 import About from "../Pages/Aboute";
 import Event from "../Pages/Event";
 import CricketEvents from "../Pages/CricketEventpage";
+import Contact from "../Pages/Contact";
+import Gallery from "../Pages/Gallary";
+import { Home } from "../Component/Home";
 
 const Router = createBrowserRouter([
   {
@@ -15,7 +15,7 @@ const Router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Hero />,
+        element: <Home />,
       },
       {
         path: "/ABOUT",
@@ -27,7 +27,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/GALLRY",
-        element: <Gallary />,
+        element: <Gallery />,
       },
       {
         path: "/CONTACT",

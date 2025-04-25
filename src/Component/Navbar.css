@@ -32,18 +32,35 @@
   text-decoration: none;
   color: white;
   font-size: 16px;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 5px 0;
+}
+
+.navbar-links li a::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #00bcd4;
+  transition: width 0.3s ease-in-out;
+  transform-origin: left;
 }
 
 .navbar-links li a:hover {
   color: #00bcd4;
 }
 
+.navbar-links li a:hover::before {
+  width: 100%;
+}
+
 .navbar-login {
   display: flex;
   align-items: center;
   margin-right: 110px;
-
 }
 
 .login-button {

@@ -1,5 +1,6 @@
 import React from 'react';
 import './hero.css';
+import Features from "./FeturesGride";
 
 export const Hero = () => {
   // Static list of logged-in users

@@ -6,7 +6,7 @@ const Background = () => {
   return (
     <>
       <div className="background">
-        <div className="overlay">
+        <div className="overlaye">
           <div className="box-detail">
             <h2>ALL YOU NEED TO</h2>
             <p className="know-text">KNOW</p>

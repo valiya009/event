@@ -6,16 +6,17 @@ import Navbar from './Component/Nav.jsx'
 import { Hero } from './Pages/Hero.jsx'
 import { Outlet } from 'react-router-dom'
 
-
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <>
-    <Navbar/>
-    <Outlet />
-    </>
-  )
+    <div className="app-container">
+      <Navbar />
+      <main className="main-content">
+        <Outlet />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
