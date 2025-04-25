@@ -2,48 +2,48 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Event.css";
 import chai from "../assets/m2.png";
-import c1 from "../assets/c1.webp";
-import c2 from "../assets/c2.jpg";
-import c3 from "../assets/c3.jpg";
-import c4 from "../assets/c4.jpg";
 
 const Event = () => {
   const categories = [
     {
       id: 1,
       name: "Cricket",
-      image: { c1 },
-      link: "/cricket-events",
+      image:
+        "https://imageio.forbes.com/specials-images/imageserve/6266d544da29199d4744041e/CRICKET-16x9/0x0.jpg?format=jpg&height=1080&width=1920",
+      link: "/CricketEventpage",
     },
     {
       id: 2,
       name: "Office Party",
-      image: { c1 },
+      image:
+        "https://takeitpersonelly.com/wp-content/uploads/2021/06/5-reasons-why-you-should-hold-office-parties-1.jpg",
       link: "/office-party",
     },
     {
       id: 3,
       name: "December events",
-      image: { c1 },
+      image:
+        "https://www.thefactsite.com/wp-content/uploads/2020/09/december-facts.jpg",
       link: "/december-events",
     },
     {
       id: 4,
       name: "Food Zone",
-      image: "/images/food-zone.jpg",
+      image:
+        "https://eatbook.sg/wp-content/uploads/2023/07/Snap-Cafe-flatlay-10.jpg",
       link: "/food-zone",
     },
     {
       id: 5,
       name: "Garba",
-      image: "/images/garba.jpg",
+      image: "https://st1.latestly.com/wp-content/uploads/2019/09/Garba.jpg",
       link: "/garba",
     },
     {
       id: 6,
-      name: "XYZ",
-      image: "/images/xyz.jpg",
-      link: "/xyz",
+      name: "gym",
+      image: "http://getwallpapers.com/wallpaper/full/c/f/e/200356.jpg",
+      link: "/Gym",
     },
   ];
 

@@ -6,6 +6,7 @@ import App from "../App";
 import React from "react";
 import About from "../Pages/Aboute";
 import Event from "../Pages/Event";
+import CricketEvents from "../Pages/CricketEventpage";
 
 const Router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const Router = createBrowserRouter([
       {
         path: "/CONTACT",
         element: <Contact />,
+      },
+      {
+        path: "/CricketEventpage",
+        element: <CricketEvents />,
       },
     ],
   },
