@@ -33,6 +33,7 @@
     text-align: center;
     color: white;
     animation: fadeIn 1s ease-out;
+    width: 700px;
   }
   
   @keyframes fadeIn {
@@ -124,11 +125,17 @@
   }
   
   .nav-links {
+    display: flex;             
+    align-items: center;        
+    justify-content: center;    
+    gap: 1.5rem;                
     margin-top: 2rem;
     opacity: 0;
     animation: fadeIn 0.8s ease forwards;
     animation-delay: 0.6s;
+    flex-direction: row;
   }
+  
   
   .nav-links a {
     color: white;
@@ -137,6 +144,7 @@
     transition: all 0.3s ease;
     position: relative;
     padding: 5px 10px;
+    flex-direction: row;
   }
   
   .nav-links a::before {

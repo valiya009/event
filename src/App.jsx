@@ -5,6 +5,7 @@ import './App.css'
 import Navbar from './Component/Nav.jsx'
 import { Hero } from './Pages/Hero.jsx'
 import { Outlet } from 'react-router-dom'
+import Footer from "./Pages/Footer.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,6 +16,7 @@ function App() {
       <main className="main-content">
         <Outlet />
       </main>
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,121 @@
+.event-container {
+  background-color: black;
+  color: white;
+  min-height: 80vh;
+  font-family: system-ui, -apple-system, sans-serif;
+  padding: 2.5rem 2rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.about-section .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ec4899;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.cta-link {
+  color: #ec4899;
+  margin-top: 1rem;
+  text-decoration: underline;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.services-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.service-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.service-title {
+  font-weight: bold;
+  border-bottom: 2px solid #ec4899;
+  display: inline-block;
+  padding-bottom: 0.25rem;
+}
+
+.service-description {
+  font-size: 0.875rem;
+  color: #60a5fa;
+}
+
+.cta-banner {
+  background-color: #ec4899;
+  color: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.cta-content {
+  text-align: center;
+}
+
+.cta-small {
+  font-size: 0.875rem;
+}
+
+.cta-large {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.cta-button {
+  background-color: black;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #1f2937;
+}
+
+@media (min-width: 768px) {
+  .event-container {
+    padding: 2.5rem 4rem;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-section .title {
+    font-size: 1.875rem;
+  }
+
+  .cta-banner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cta-content {
+    text-align: left;
+  }
+
+  .cta-button {
+    margin-top: 0;
+  }
+}
