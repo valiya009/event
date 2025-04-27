@@ -7,6 +7,7 @@ import CricketEvents from "../Pages/CricketEventpage";
 import Contact from "../Pages/Contact";
 import Gallery from "../Pages/Gallary";
 import { Home } from "../Component/Home";
+import AuthForms from "../Pages/Login";
 
 const Router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const Router = createBrowserRouter([
       {
         path: "/CricketEventpage",
         element: <CricketEvents />,
+      },
+      {
+        path: "/login",
+        element: <AuthForms />,
       },
     ],
   },
