@@ -56,7 +56,7 @@ const CricketEvents = () => {
       <div className="events-grid">
         {cricketEvents.map((event) => (
           <div key={event.id} className="event-card">
-            <img src={event.image} alt={event.name} className="event-image" />
+            <Link to={"/IplEvent"}><img src={event.image} alt={event.name} className="event-image" /></Link>
             <div className="event-details">
               <h2>{event.name}</h2>
               <p className="event-date">

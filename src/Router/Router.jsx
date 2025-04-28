@@ -9,6 +9,7 @@ import Gallery from "../Pages/Gallary";
 import { Home } from "../Component/Home";
 import AuthForms from "../Pages/Login";
 import BookingForm from "../Pages/BookTicket";
+import IPLEvent from "../Pages/IplEvent";
 
 const Router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const Router = createBrowserRouter([
       {
         path: "/bookticket",
         element: <BookingForm />,
+      },
+      {
+        path: "/IplEvent",
+        element: <IPLEvent />,
       },
     ],
   },

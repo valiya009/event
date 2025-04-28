@@ -44,13 +44,13 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #00bcd4;
+  background-color: #FF8C00;
   transition: width 0.3s ease-in-out;
   transform-origin: left;
 }
 
 .navbar-links li a:hover {
-  color: #00bcd4;
+  color: #FF8C00;
 }
 
 .navbar-links li a:hover::before {
