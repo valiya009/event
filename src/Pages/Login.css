@@ -13,11 +13,11 @@
   border-radius: 20px;
   padding: 2rem;
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   position: relative;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-  height: 450px; /* फिक्स्ड हाइट जोड़ी गई है */
+  height: 500px; 
 }
 
 .login-form,
@@ -221,3 +221,30 @@
       opacity: 1;
     }
   }
+
+.forgot-password {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.forgot-password span {
+  color: #ec4899;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.forgot-password span:hover {
+  color: #d946ef;
+}
+
+.forgot-password-form {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+}
+
+.forgot-password-form.hidden {
+  opacity: 0;
+  visibility: hidden;
+}

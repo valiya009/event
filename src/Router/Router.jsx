@@ -8,6 +8,7 @@ import Contact from "../Pages/Contact";
 import Gallery from "../Pages/Gallary";
 import { Home } from "../Component/Home";
 import AuthForms from "../Pages/Login";
+import BookingForm from "../Pages/BookTicket";
 
 const Router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const Router = createBrowserRouter([
       {
         path: "/login",
         element: <AuthForms />,
+      },
+      {
+        path: "/bookticket",
+        element: <BookingForm />,
       },
     ],
   },

@@ -65,22 +65,73 @@
 
 .login-button {
   padding: 9px 16px;
-  background-color: #d7c947;
-  color: white;
+  background-color: #FF8C00;
+  color: #ffffff;
   border-radius: 10px;
   text-decoration: none;
   font-weight: bold;
   transition: all 0.3s ease;
   height: 40px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: 2px solid transparent;
+}
+
+.login-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: #FF4500;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: -1;
+}
+
+.login-button:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .login-button:hover {
-  background-color: white;
-  color: #f2e308;
-  box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
+  color: #FFF5E6;
+  border-color: #FFA500;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 140, 0, 0.4);
+  animation: pulse 1.5s infinite;
 }
 
-.navbar-profile {
+@keyframes pulse {
+  0% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(-3px);
+  }
+}
+
+.login-button:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 10px rgba(255, 140, 0, 0.4);
+}
+
+@keyframes glowing {
+  0% { box-shadow: 0 0 5px #FF8C00; }
+  50% { box-shadow: 0 0 20px #FF8C00; }
+  100% { box-shadow: 0 0 5px #FF8C00; }
+}
+
+.login-button:focus {
+  outline: none;
+  animation: glowing 1.5s infinite;
+}.navbar-profile {
   display: flex;
   align-items: center;
   gap: 10px;

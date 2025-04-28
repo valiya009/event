@@ -1,83 +1,241 @@
 .cricket-events-container {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .cricket-events-container h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 2rem;
-  }
-  
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.cricket-events-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.events-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 33px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  margin-top: 100px;
+}
+
+.event-card {
+  min-width: 280px;
+  flex: 0 0 calc(25% - 29.25px);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 39px;
+}
+
+.event-details {
+  padding: 1rem;
+}
+
+.event-details h2 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.event-details p {
+  margin: 0.5rem 0;
+  color: #666;
+}
+
+.event-details span {
+  font-weight: bold;
+  color: #444;
+}
+
+.book-ticket {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.book-ticket:hover {
+  background-color: #ff5252;
+}
+
+@media (max-width: 1200px) {
   .events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    flex-wrap: wrap;
   }
   
   .event-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    flex: 0 0 calc(50% - 19.5px);
   }
-  
-  .event-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .event-image {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    
-  }
-  
-  .event-details {
+}
+
+@media (max-width: 768px) {
+  .cricket-events-container {
     padding: 1rem;
   }
   
-  .event-details h2 {
-    margin: 0 0 1rem 0;
-    color: #333;
-    font-size: 1.2rem;
+  .event-card {
+    flex: 0 0 100%;
   }
-  
-  .event-details p {
-    margin: 0.5rem 0;
-    color: #666;
+}
+.cricket-events-container {
+  padding: 0;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.hero-image {
+  width: 100%;
+  height: 400px;
+  background-image: url('https://wallpaperaccess.com/full/1088580.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  animation: gradientBG 20s ease infinite;
+  overflow: hidden;
+}
+
+.hero-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  animation: pulseOverlay 3s ease-in-out infinite;
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.15) 25%, transparent 25%);
+  animation: shine 3s linear infinite;
+  transform: translateX(-100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: scaleIn 1s ease-out;
+}
+
+.hero-content h1 {
+  color: #fff;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInDown 1s ease-out, glowText 2s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(250, 248, 248, 0.5);
+}
+
+.underline {
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6b6b, #ff5252, #ff6b6b);
+  margin: 0 auto;
+  animation: expandWidth 1.5s ease-out forwards, shimmer 2s linear infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
   }
-  
-  .event-details span {
-    font-weight: bold;
-    color: #444;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .book-ticket {
-    width: 100%;
-    padding: 0.8rem;
-    margin-top: 1rem;
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
   }
-  
-  .book-ticket:hover {
-    background-color: #ff5252;
+  to {
+    width: 200px;
   }
-  
-  @media (max-width: 768px) {
-    .cricket-events-container {
-      padding: 1rem;
-    }
-    
-    .events-grid {
-      grid-template-columns: 1fr;
-    }
+}
+
+@keyframes pulseOverlay {
+  0%, 100% {
+    background: rgba(0, 0, 0, 0.6);
   }
+  50% {
+    background: rgba(0, 0, 0, 0.7);
+  }
+}
+
+@keyframes shine {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes glowText {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(236, 226, 226, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(251, 245, 245, 0.8);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px;
+  }
+  100% {
+    background-position: 200px;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientBG {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}

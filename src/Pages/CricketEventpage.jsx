@@ -1,6 +1,6 @@
 import React from 'react';
 import './CricketEvents.css';
-
+import { Link } from "react-router-dom";
 
 const CricketEvents = () => {
   const cricketEvents = [
@@ -47,7 +47,12 @@ const CricketEvents = () => {
 
   return (
     <div className="cricket-events-container">
-      <h1>Cricket Events</h1>
+      <div className="hero-image">
+        <div className="hero-content">
+          <h1>Cricket Events</h1>
+          <div className="underline"></div>
+        </div>
+      </div>
       <div className="events-grid">
         {cricketEvents.map((event) => (
           <div key={event.id} className="event-card">
@@ -66,7 +71,9 @@ const CricketEvents = () => {
               <p className="event-price">
                 <span>Ticket Price:</span> {event.price}
               </p>
-              <button className="book-ticket">Book Ticket →</button>
+              <Link to={"/bookticket"}>
+                <button className="book-ticket">Book Ticket →</button>
+              </Link>
             </div>
           </div>
         ))}
