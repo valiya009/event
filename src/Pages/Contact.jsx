@@ -1,95 +1,81 @@
 import React, { useState } from "react";
-import "./Contact.css";
+import "./Contact.css"  ;
+import { Link, useNavigate } from "react-router-dom";
 
-const Contact = () => {
+const ChangePassword = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
+    currentPassword: "",
+    newPassword: "",
   });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    navigate("/admin");
   };
 
   return (
-    <>
-      <div className="contact-container">
-        <div className="contact-header">
-          <h2>CONTACT US NOW</h2>
-          <div className="header-highlight">
-            <span className="keep">KEEP</span>
-            <span className="in-touch">IN TOUCH</span>
+    <div className="main-container">
+      <div className="hero-section">
+        <div className="hero-content">
+          <h2 className="animate-text">CONTACT US NOW</h2>
+          <div className="hero-title">
+            <span className="keep animate-keep">KEEP</span>
+            <span className="touch animate-touch">IN TOUCH</span>
           </div>
-          <div className="nav-links">
-            <a href="/">Home</a>
-            <span className="separator">|</span>
-            <a href="/contact">Contact Us</a>
+          <div className="breadcrumb animate-breadcrumb">
+            <Link to="/">Home</Link>
+            <span>|</span>
+            <Link to="/contact">Contact Us</Link>
           </div>
         </div>
       </div>
-      <div className="form-container">
-        <div className="contact-form">
-          <div className="form-icon">
-            <i className="fas fa-lock"></i>
-            <div className="us">Contact Us</div>
+
+      <div className="form-wrapper">
+        <div className="password-form-container">
+          <div className="form-header">
+            <div className="lock-icon">
+              <i className="fas fa-lock"></i>
+            </div>
+            <h3>Change Password</h3>
           </div>
+
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="name *"
+                type="password"
+                placeholder=" "
+                value={formData.currentPassword}
+                onChange={(e) =>
+                  setFormData({ ...formData, currentPassword: e.target.value })
+                }
                 required
               />
+              <label>Current Password</label>
             </div>
+
             <div className="form-group">
               <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="email *"
+                type="password"
+                placeholder=" "
+                value={formData.newPassword}
+                onChange={(e) =>
+                  setFormData({ ...formData, newPassword: e.target.value })
+                }
                 required
               />
+              <label>New Password</label>
             </div>
-            <div className="form-group">
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                placeholder="phone *"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="message *"
-                required
-              ></textarea>
-            </div>
-            <button type="submit">SEND</button>
+
+            <button type="submit" className="change-btn">
+              <span>CHANGE</span>
+            </button>
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Contact;
+export default ChangePassword;

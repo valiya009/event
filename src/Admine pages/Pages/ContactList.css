@@ -1,0 +1,77 @@
+.contact-container {
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  .contact-header i {
+    font-size: 24px;
+    color: #4285f4;
+  }
+  
+  .contact-header .fa-lock {
+    font-size: 20px;
+  }
+  
+  .contact-header h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #4285f4;
+    text-align: center;
+  }
+  
+  .contact-list {
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  .contact-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .contact-list th,
+  .contact-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #0a0909;
+    color: #000000;
+  }
+  
+  .contact-list th {
+    background-color: #000000;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  .contact-list tr:hover {
+    background-color: #f8f9fa;
+  }
+  
+  @media (max-width: 768px) {
+    .contact-container {
+      padding: 15px;
+    }
+  
+    .contact-list {
+      overflow-x: auto;
+      padding: 0 10px;
+    }
+  }
