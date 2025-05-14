@@ -56,7 +56,7 @@ const CricketEvents = () => {
       <div className="events-grid">
         {cricketEvents.map((event) => (
           <div key={event.id} className="event-card">
-            <Link to={"/IplEvent"}><img src={event.image} alt={event.name} className="event-image" /></Link>
+            <Link to={`/event/${event.id}`}><img src={event.image} alt={event.name} className="event-image" /></Link>
             <div className="event-details">
               <h2>{event.name}</h2>
               <p className="event-date">
@@ -71,7 +71,7 @@ const CricketEvents = () => {
               <p className="event-price">
                 <span>Ticket Price:</span> {event.price}
               </p>
-              <Link to={"/bookticket"}>
+              <Link to={`/bookticket/${event.id}`}>
                 <button className="book-ticket">Book Ticket →</button>
               </Link>
             </div>

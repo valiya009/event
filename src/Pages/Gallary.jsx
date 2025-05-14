@@ -65,7 +65,6 @@ const Gallery = () => {
 
   return (
     <div className="gallery-container">
-      // ... existing code ...
       <div className="gallery-header">
         <h1>
           {"Our Event Gallery".split("").map((letter, index) => (

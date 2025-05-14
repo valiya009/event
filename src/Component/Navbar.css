@@ -137,17 +137,72 @@
   gap: 10px;
 }
 
-.profile-name {
+.user-name {
   color: white;
   font-size: 16px;
-  margin-right: 100px;
+  margin-right: 10px;
 }
 
-.profile-photo {
-  width: 40px;
-  height: 40px;
+.profile-pic {
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
-  object-fit: cover;
   border: 2px solid #fff;
-  margin-right: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.user-info:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 220px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 1000;
+  margin-top: 10px;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+}
+
+/* Remove duplicate dropdown-menu class */
+/* Remove visibility: hidden and opacity: 0 from here */
+
+.dropdown-item {
+  display: block;
+  padding: 14px 18px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 15px;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
 }

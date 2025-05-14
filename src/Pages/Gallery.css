@@ -1,51 +1,34 @@
 .gallery-container {
-    padding: 4rem 2rem;
-    background: #f5f5f5;margin-top: 100px;
-  }
-  
-  .gallery-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .gallery-header h1 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 1rem;
-  }
-  
-  .gallery-header p {
-    font-size: 1.2rem;
-    color: #666;
-  }
-  
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
+  padding: 4rem 2rem;
+  background: #f5f5f5;
+  margin-top: 100px;
+}
 
-  /* gallary */
-  // ... existing code ...
+.gallery-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .gallery-header h1 {
-  font-size: 2.5rem;
+  font-size: 30px;
   color: #333;
   margin-bottom: 1rem;
   position: relative;
   display: inline-block;
   padding-bottom: 15px;
+  text-align: center;
+}
+
+.gallery-header p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 20px;
+  text-align: center;
+  max-width: 800px;
 }
 
 .gallery-header h1::after {
@@ -89,6 +72,48 @@
   }
 }
 
+/* Animation delays for each letter */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+
+@media (max-width: 768px) {
+  .gallery-header h1 {
+    font-size: 2rem;
+  }
+
+  .gallery-header p {
+    font-size: 1rem;
+    margin-top: 15px;
+    padding: 0 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .event-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation delays for each letter */
 .gallery-header h1 span:nth-child(1) { animation-delay: 0.1s; }
 .gallery-header h1 span:nth-child(2) { animation-delay: 0.2s; }
 .gallery-header h1 span:nth-child(3) { animation-delay: 0.3s; }
@@ -105,129 +130,144 @@
 .gallery-header h1 span:nth-child(14) { animation-delay: 1.4s; }
 .gallery-header h1 span:nth-child(15) { animation-delay: 1.5s; }
 
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-  
-  .gallery-item:hover {
-    transform: translateY(-5px);
-  }
-  
-  .gallery-item img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  .gallery-item:hover img {
-    transform: scale(1.05);
-  }
-  
-  .image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    padding: 1.5rem;
-    color: white;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-  }
-  
-  .gallery-item:hover .image-overlay {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .image-overlay h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .image-overlay p {
-    font-size: 0.9rem;
-    opacity: 0.9;
-  }
-  
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .modal-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 800px;
-    width: 90%;
-    position: relative;
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 1.5rem;
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover .image-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.image-overlay h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.image-overlay p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-button:hover {
+  color: #ff4444;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+}
+
+.modal-details {
+  color: #333;
+}
+
+.modal-details h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.modal-details p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.event-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  .gallery-header h1 {
     font-size: 2rem;
-    color: #333;
-    cursor: pointer;
-    transition: color 0.3s ease;
   }
-  
-  .close-button:hover {
-    color: #ff4444;
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
   }
-  
-  .modal-content img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 1.5rem;
-  }
-  
-  .modal-details {
-    color: #333;
-  }
-  
-  .modal-details h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-  
-  .modal-details p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-  
+
   .event-info {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
+    grid-template-columns: 1fr;
   }
-  
-  @media (max-width: 768px) {
-    .gallery-header h1 {
-      font-size: 2rem;
-    }
-  
-    .gallery-grid {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-  
-    .event-info {
-      grid-template-columns: 1fr;
-    }
-  }
+}

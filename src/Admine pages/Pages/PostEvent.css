@@ -1,5 +1,4 @@
-/* PostEvent.css */
-
+/* Post Event Form Styles */
 .post-event-container {
   max-width: 800px;
   margin: 2rem auto;
@@ -10,6 +9,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Header Styles */
 .post-event-header {
   display: flex;
   align-items: center;
@@ -24,19 +24,19 @@
   color: #007bff;
 }
 
-/* Form styles */
+/* Form Layout */
 .post-event-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-/* File upload section */
+/* File Upload Section */
 .file-upload {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-}
+} 
 
 .file-label {
   display: flex;
@@ -57,23 +57,11 @@
 .file-input {
   display: none;
 }
-
-.choose-pic-btn {
-  align-self: flex-start;
-  padding: 0.5rem 1.2rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.file-upload :placeholder-shown
+{
+  color: black;
 }
-
-.choose-pic-btn:hover {
-  background-color: #0056b3;
-}
-
-/* Input fields */
+/* Form Input Controls */
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -83,27 +71,58 @@
   border: 1px solid #ccc;
   border-radius: 6px;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
+  color: #000000 !important;
+  background-color: #ffffff;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
 }
 
-/* Row grouping for date/time */
-.form-row {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999999;
 }
 
-.form-row .form-group {
-  flex: 1;
+.form-group select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  padding-right: 30px;
 }
 
-/* Submit button */
+.form-group select option {
+  color: #000000;
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+/* Button Styles */
+.choose-pic-btn {
+  align-self: flex-start;
+  padding: 0.5rem 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.choose-pic-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
 .submit-btn {
   padding: 0.75rem;
   font-size: 1rem;
@@ -113,20 +132,38 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .submit-btn:hover {
   background-color: #218838;
+  transform: translateY(-1px);
+}
+
+/* Layout Utilities */
+.form-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-row .form-group {
+  flex: 1;
+  min-width: 200px;
 }
 
 /* Responsive Design */
 @media (max-width: 600px) {
+  .post-event-container {
+    padding: 1.2rem;
+    margin: 1rem;
+  }
+
   .form-row {
     flex-direction: column;
   }
 
-  .post-event-container {
-    padding: 1.2rem;
+  .form-row .form-group {
+    min-width: 100%;
   }
 }

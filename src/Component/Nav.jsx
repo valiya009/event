@@ -1,9 +1,17 @@
-import React from 'react';
-import './Navbar.css';
-import { Link } from 'react-router-dom';
-import AuthForms from "../Pages/Login";
+import React, { useState } from "react";
+import "./Navbar.css";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../Fetures/USerSlice";
+import chat from "../assets/m21.jpg";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  console.log(user);
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
@@ -43,9 +51,49 @@ const Navbar = () => {
       </ul>
 
       <div className="navbar-login">
-        <Link to="/login" className="login-button">
-          Login
-        </Link>
+        {user ? (
+          <div className="user-profile">
+            <div
+              className="user-info"
+              onClick={() => setShowDropdown(!showDropdown)}
+            >
+              <span className="user-name">{user.name}</span>
+              <img src={chat} alt="Profile" className="profile-pic" />
+            </div>
+
+            {showDropdown && (
+              <div className="dropdown-menu">
+                <Link
+                  to="/account"
+                  className="dropdown-item"
+                  onClick={() => setShowDropdown(false)}
+                >
+                  Account
+                </Link>
+                <Link
+                  to="/mybookings"
+                  className="dropdown-item"
+                  onClick={() => setShowDropdown(false)}
+                >
+                  My Bookings
+                </Link>
+                <button
+                  onClick={() => {
+                    dispatch(logout());
+                    setShowDropdown(false);
+                  }}
+                  className="dropdown-item logout-btn"
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
+        ) : (
+          <Link to="/login" className="login-button">
+            Login
+          </Link>
+        )}
       </div>
     </nav>
   );

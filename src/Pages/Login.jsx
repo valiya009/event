@@ -1,95 +1,142 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../Pages/Login.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { login } from "../Fetures/USerSlice";
+import "../Pages/Login.css";
 
 const AuthForms = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [isLoginForm, setIsLoginForm] = useState(true);
   const [isForgotPassword, setIsForgotPassword] = useState(false);
   const [message, setMessage] = useState({ text: "", type: "" });
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
     fullName: "",
     confirmPassword: "",
+    gender: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const switchForm = () => {
     setIsLoginForm(!isLoginForm);
+    setIsForgotPassword(false);
     setMessage({ text: "", type: "" });
     setFormData({
       email: "",
       password: "",
       fullName: "",
       confirmPassword: "",
+      gender: "",
     });
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    setMessage({
-      text: "Login successful! Welcome back.",
-      type: "success",
-    });
-    setTimeout(() => {
-      navigate("/");
-    }, 1500);
+    try {
+      const res = await axios.post("http://localhost:4000/api/v1/user/login", {
+        email: formData.email,
+        password: formData.password,
+      });
+
+      const userData = res.data.user;
+      dispatch(login(userData));
+      setMessage({ text: "Login successful!", type: "success" });
+
+      setTimeout(() => {
+        navigate("/");
+      }, 1500);
+    } catch (error) {
+      setMessage({
+        text: error.response?.data?.message || "Login failed!",
+        type: "error",
+      });
+    }
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+
     if (formData.password !== formData.confirmPassword) {
-      setMessage({
-        text: "Passwords do not match!",
-        type: "error",
-      });
+      setMessage({ text: "Passwords do not match!", type: "error" });
       return;
     }
-    setMessage({
-      text: "Registration successful! Welcome to our platform.",
-      type: "success",
-    });
-    setTimeout(() => {
-      setIsLoginForm(true);
-    }, 1500);
+
+    try {
+      const res = await axios.post(
+        "http://localhost:4000/api/v1/user/register",
+        {
+          name: formData.fullName,
+          email: formData.email,
+          password: formData.password,
+          gender: formData.gender,
+        }
+      );
+
+      setMessage({
+        text: res.data.message || "Registered successfully!",
+        type: "success",
+      });
+      setTimeout(() => setIsLoginForm(true), 1500);
+    } catch (error) {
+      setMessage({
+        text: error.response?.data?.message || "Registration failed!",
+        type: "error",
+      });
+    }
   };
 
-  const handleForgotPassword = (e) => {
+  const handleForgotPassword = async (e) => {
     e.preventDefault();
+
     if (!formData.email) {
-      setMessage({
-        text: "Please enter your email address",
-        type: "error",
-      });
+      setMessage({ text: "Please enter your email address", type: "error" });
       return;
     }
-    setMessage({
-      text: "Password reset link has been sent to your email",
-      type: "success",
-    });
-    setTimeout(() => {
-      setIsForgotPassword(false);
-      setIsLoginForm(true);
-    }, 2000);
-  };
 
+    try {
+      const res = await axios.post(
+        "http://localhost:4000/api/v1/user/forgote",
+        {
+          email: formData.email,
+        }
+      );
+
+      setMessage({
+        text: res.data.message || "Password reset link sent to your email.",
+        type: "success",
+      });
+
+      setTimeout(() => {
+        setIsForgotPassword(false);
+        setIsLoginForm(true);
+      }, 2000);
+    } catch (error) {
+      setMessage({
+        text:
+          error.response?.data?.message ||
+          "Failed to send reset link. Please try again.",
+        type: "error",
+      });
+    }
+  };
   const switchToForgotPassword = () => {
     setIsForgotPassword(true);
-    setIsLoginForm(true);
     setMessage({ text: "", type: "" });
     setFormData({
       email: "",
       password: "",
       fullName: "",
       confirmPassword: "",
+      gender: "",
     });
   };
 
@@ -98,12 +145,12 @@ const AuthForms = () => {
       {message.text && (
         <div className={`message ${message.type}`}>{message.text}</div>
       )}
+
       <div
         className={`forms-container ${
           isLoginForm ? "login-active" : "register-active"
         }`}
       >
-        {/* Login Form */}
         {!isForgotPassword ? (
           <div className="login-form">
             <h2>Welcome Back</h2>
@@ -118,6 +165,7 @@ const AuthForms = () => {
                 />
                 <label>Email</label>
               </div>
+
               <div className="form-group">
                 <input
                   type="password"
@@ -128,13 +176,16 @@ const AuthForms = () => {
                 />
                 <label>Password</label>
               </div>
+
               <div className="forgot-password">
                 <span onClick={switchToForgotPassword}>Forgot Password?</span>
               </div>
+
               <button type="submit" className="submit-btn">
                 Login
               </button>
             </form>
+
             <p>
               Don't have an account?{" "}
               <span className="switch-btn" onClick={switchForm}>
@@ -144,7 +195,7 @@ const AuthForms = () => {
           </div>
         ) : (
           <div className="forgot-password-form">
-            <h2>Password Reset</h2>
+            <h2>Reset Password</h2>
             <form onSubmit={handleForgotPassword}>
               <div className="form-group">
                 <input
@@ -171,7 +222,6 @@ const AuthForms = () => {
           </div>
         )}
 
-        {/* Registration Form */}
         <div className="register-form">
           <h2>Create Account</h2>
           <form onSubmit={handleRegister}>
@@ -182,9 +232,11 @@ const AuthForms = () => {
                 value={formData.fullName}
                 onChange={handleInputChange}
                 required
+                className="test2"
               />
               <label>Full Name</label>
             </div>
+
             <div className="form-group">
               <input
                 type="email"
@@ -195,6 +247,30 @@ const AuthForms = () => {
               />
               <label>Email</label>
             </div>
+
+            <div className="form-group">
+              <select
+                name="gender"
+                value={formData.gender}
+                onChange={handleInputChange}
+                required
+              >
+                <option value="" className="test">
+                  Select Gender
+                </option>
+                <option value="male" className="test">
+                  Male
+                </option>
+                <option value="female" className="test">
+                  Female
+                </option>
+                <option value="other" className="test">
+                  Other
+                </option>
+              </select>
+              <label className="test1">Gender</label>
+            </div>
+
             <div className="form-group">
               <input
                 type="password"
@@ -205,6 +281,7 @@ const AuthForms = () => {
               />
               <label>Password</label>
             </div>
+
             <div className="form-group">
               <input
                 type="password"
@@ -215,6 +292,7 @@ const AuthForms = () => {
               />
               <label>Confirm Password</label>
             </div>
+
             <button type="submit" className="submit-btn">
               Register
             </button>
